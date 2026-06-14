@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="620.0" prefWidth="860.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sgpp.controlador.ProfesorController">
+    <top>
+        <VBox spacing="8.0" style="-fx-background-color: #263238; -fx-padding: 16;">
+            <HBox alignment="CENTER_LEFT" spacing="12.0">
+                <Label text="SGPP - Profesor" textFill="WHITE" style="-fx-font-size: 20; -fx-font-weight: bold;" />
+                <Label fx:id="lblSesion" textFill="#CFD8DC" />
+                <Button text="Cerrar sesion" onAction="#cerrarSesion" />
+            </HBox>
+            <Label fx:id="lblMensaje" textFill="#ECEFF1" />
+        </VBox>
+    </top>
+    <center>
+        <VBox spacing="8.0" style="-fx-padding: 18;">
+            <Label text="CU18 Validar Reportes" style="-fx-font-size: 15; -fx-font-weight: bold;" />
+            <ListView fx:id="lstReportesPendientes" prefHeight="220.0" />
+            <Label text="Observaciones" />
+            <TextArea fx:id="txtObservacionesReporte" prefRowCount="4" />
+            <Separator />
+            <HBox spacing="10.0">
+                <Button text="Validar" onAction="#aceptarReporte" />
+                <Button text="Rechazar" onAction="#rechazarReporte" />
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
