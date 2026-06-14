@@ -22,7 +22,10 @@ public class Sgpp extends Application {
         
         Scene scene = new Scene(root);
         
+        stage.setTitle("SGPP - Sistema de Gestión de Prácticas Profesionales");
         stage.setScene(scene);
+        stage.setMinWidth(900);
+        stage.setMinHeight(650);
         stage.show();
     }
 

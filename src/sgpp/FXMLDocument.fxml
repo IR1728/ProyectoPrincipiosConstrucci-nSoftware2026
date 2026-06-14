@@ -1,14 +1,138 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sgpp.FXMLDocumentController">
-    <children>
-        <Button layoutX="126" layoutY="90" text="Click Me!" onAction="#handleButtonAction" fx:id="button" />
-        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />
-    </children>
-</AnchorPane>
+<BorderPane prefHeight="720.0" prefWidth="1080.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sgpp.controlador.ControladorPrincipal">
+    <top>
+        <VBox spacing="8.0" style="-fx-background-color: #263238; -fx-padding: 16;">
+            <HBox alignment="CENTER_LEFT" spacing="12.0">
+                <Label text="Sistema de Gestión de Prácticas Profesionales" textFill="WHITE" style="-fx-font-size: 20; -fx-font-weight: bold;" />
+                <Label fx:id="lblSesion" text="Sin sesión" textFill="#CFD8DC" />
+                <Button text="Cerrar sesión" onAction="#cerrarSesion" />
+            </HBox>
+            <Label fx:id="lblMensaje" textFill="#ECEFF1" />
+        </VBox>
+    </top>
+    <center>
+        <ScrollPane fitToWidth="true">
+            <content>
+                <StackPane style="-fx-padding: 18;">
+                    <VBox fx:id="panelLogin" maxWidth="420.0" spacing="10.0" style="-fx-padding: 18; -fx-border-color: #B0BEC5; -fx-border-radius: 4;">
+                        <Label text="Inicio de sesión" style="-fx-font-size: 18; -fx-font-weight: bold;" />
+                        <Label text="Usuario" />
+                        <TextField fx:id="txtUsuario" />
+                        <Label text="Contraseña" />
+                        <PasswordField fx:id="txtContrasena" />
+                        <Button text="Iniciar sesión" onAction="#iniciarSesion" maxWidth="Infinity" />
+                    </VBox>
+
+                    <VBox fx:id="panelCoordinador" spacing="18.0">
+                        <Label text="Coordinador" style="-fx-font-size: 18; -fx-font-weight: bold;" />
+
+                        <VBox spacing="8.0" style="-fx-padding: 12; -fx-border-color: #B0BEC5; -fx-border-radius: 4;">
+                            <Label text="CU01 Registrar Proyecto" style="-fx-font-size: 15; -fx-font-weight: bold;" />
+                            <GridPane hgap="10.0" vgap="8.0">
+                                <Label text="Nombre" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <TextField fx:id="txtNombreProyecto" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="Objetivo" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                <TextArea fx:id="txtObjetivoProyecto" prefRowCount="2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Label text="Metodología" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                <TextField fx:id="txtMetodologiaProyecto" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                <Label text="Máx. participantes" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                                <TextField fx:id="txtMaxParticipantes" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                <Label text="Inicio" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                                <DatePicker fx:id="dpInicioProyecto" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                <Label text="Fin" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                                <DatePicker fx:id="dpFinProyecto" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                <Label text="Organización" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                                <ComboBox fx:id="cmbOrganizacion" prefWidth="360.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                <Label text="Responsable" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                                <ComboBox fx:id="cmbResponsable" prefWidth="360.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                            </GridPane>
+                            <Button text="Registrar proyecto" onAction="#registrarProyecto" />
+                        </VBox>
+
+                        <VBox spacing="8.0" style="-fx-padding: 12; -fx-border-color: #B0BEC5; -fx-border-radius: 4;">
+                            <Label text="CU07 Asignar Proyecto a Estudiante" style="-fx-font-size: 15; -fx-font-weight: bold;" />
+                            <HBox spacing="12.0">
+                                <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                    <Label text="Estudiantes pendientes, priorizados por semestre y promedio" />
+                                    <ListView fx:id="lstEstudiantesPendientes" prefHeight="150.0" />
+                                </VBox>
+                                <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                    <Label text="Proyectos con cupo" />
+                                    <ListView fx:id="lstProyectosConCupo" prefHeight="150.0" />
+                                </VBox>
+                            </HBox>
+                            <Button text="Asignar proyecto" onAction="#asignarProyecto" />
+                        </VBox>
+
+                        <VBox spacing="8.0" style="-fx-padding: 12; -fx-border-color: #B0BEC5; -fx-border-radius: 4;">
+                            <Label text="CU11 Programar Entregas de Prácticas Profesionales" style="-fx-font-size: 15; -fx-font-weight: bold;" />
+                            <GridPane hgap="10.0" vgap="8.0">
+                                <Label text="Inicial apertura" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <DatePicker fx:id="dpInicialApertura" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="Inicial límite" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                <DatePicker fx:id="dpInicialLimite" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                                <Label text="Reportes apertura" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                <DatePicker fx:id="dpReportesApertura" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Label text="Reportes límite" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                <DatePicker fx:id="dpReportesLimite" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                <Label text="Final apertura" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                <DatePicker fx:id="dpFinalApertura" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                <Label text="Final límite" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                <DatePicker fx:id="dpFinalLimite" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                            </GridPane>
+                            <Button text="Guardar programación" onAction="#programarEntregas" />
+                        </VBox>
+                    </VBox>
+
+                    <VBox fx:id="panelEstudiante" spacing="12.0">
+                        <Label text="Estudiante" style="-fx-font-size: 18; -fx-font-weight: bold;" />
+                        <VBox spacing="8.0" style="-fx-padding: 12; -fx-border-color: #B0BEC5; -fx-border-radius: 4;">
+                            <Label text="CU15 Llenar Autoevaluación" style="-fx-font-size: 15; -fx-font-weight: bold;" />
+                            <Label text="Puntaje 1-100" />
+                            <TextField fx:id="txtPuntajeAutoevaluacion" />
+                            <Label text="Comentarios" />
+                            <TextArea fx:id="txtComentariosAutoevaluacion" prefRowCount="5" />
+                            <Button text="Subir autoevaluación" onAction="#registrarAutoevaluacion" />
+                        </VBox>
+                    </VBox>
+
+                    <VBox fx:id="panelProfesor" spacing="12.0">
+                        <Label text="Profesor" style="-fx-font-size: 18; -fx-font-weight: bold;" />
+                        <VBox spacing="8.0" style="-fx-padding: 12; -fx-border-color: #B0BEC5; -fx-border-radius: 4;">
+                            <Label text="CU18 Validar Reportes" style="-fx-font-size: 15; -fx-font-weight: bold;" />
+                            <ListView fx:id="lstReportesPendientes" prefHeight="220.0" />
+                            <Label text="Observaciones" />
+                            <TextArea fx:id="txtObservacionesReporte" prefRowCount="4" />
+                            <Separator />
+                            <HBox spacing="10.0">
+                                <Button text="Validar" onAction="#aceptarReporte" />
+                                <Button text="Rechazar" onAction="#rechazarReporte" />
+                            </HBox>
+                        </VBox>
+                    </VBox>
+                </StackPane>
+            </content>
+        </ScrollPane>
+    </center>
+    <padding>
+        <Insets bottom="0.0" left="0.0" right="0.0" top="0.0" />
+    </padding>
+</BorderPane>
