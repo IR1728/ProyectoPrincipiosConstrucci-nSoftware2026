@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author snake
+ * @author jiran
  */
 public class Sgpp extends Application {
     
