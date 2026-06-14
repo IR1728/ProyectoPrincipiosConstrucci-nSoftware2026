@@ -105,4 +105,9 @@ public class ReporteMensual {
     public void setIdPeriodo(Integer idPeriodo) {
         this.idPeriodo = idPeriodo;
     }
+
+    @Override
+    public String toString() {
+        return "Reporte mes " + numeroMes + " - " + estado + " - estudiante " + idEstudiante;
+    }
 }
