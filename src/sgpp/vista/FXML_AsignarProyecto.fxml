@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="560.0" prefWidth="840.0"
+            style="-fx-background-color: linear-gradient(to bottom right, #15546b, #2e8b41);"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sgpp.controlador.AsignarProyectoController">
+    <children>
+        <Label layoutX="28.0" layoutY="22.0" text="Asignar Proyecto a Estudiante"
+               textFill="#ffffff">
+            <font>
+                <Font name="Arial Bold Italic" size="24.0" />
+            </font>
+        </Label>
+
+        <Pane layoutX="24.0" layoutY="70.0" prefHeight="466.0" prefWidth="792.0"
+              style="-fx-background-color: #ffffff; -fx-background-radius: 26;">
+            <children>
+                <HBox layoutX="34.0" layoutY="28.0" prefWidth="724.0" spacing="30.0">
+                    <children>
+                        <VBox spacing="8.0">
+                            <children>
+                                <Label text="Proyectos con lugares disponibles"
+                                       textFill="#14506b">
+                                    <font>
+                                        <Font name="Arial Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <TableView fx:id="tablaProyectos" prefHeight="320.0"
+                                           prefWidth="430.0">
+                                    <columns>
+                                        <TableColumn fx:id="columnaNombreProyecto"
+                                                     prefWidth="320.0" text="Proyecto" />
+                                        <TableColumn fx:id="columnaLugaresDisponibles"
+                                                     prefWidth="108.0" text="Lugares" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </VBox>
+
+                        <VBox spacing="10.0">
+                            <children>
+                                <Label text="Estudiante" textFill="#14506b">
+                                    <font>
+                                        <Font name="Arial Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <ComboBox fx:id="comboEstudiantes" prefWidth="250.0"
+                                          promptText="Selecciona un estudiante" />
+                                <Label text="Selecciona un estudiante de la lista y un proyecto de la tabla, luego presiona Asignar."
+                                       textFill="#5a5a5a" wrapText="true" prefWidth="250.0">
+                                    <font>
+                                        <Font name="Arial Italic" size="12.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+
+                <HBox alignment="CENTER_RIGHT" layoutX="34.0" layoutY="400.0" prefWidth="724.0"
+                      spacing="18.0">
+                    <children>
+                        <Button onAction="#clicSalir" text="Salir" textFill="#b03a2e"
+                                style="-fx-background-color: #ffffff; -fx-border-color: #b03a2e; -fx-border-width: 1; -fx-border-radius: 18; -fx-background-radius: 18; -fx-padding: 8 26 8 26; -fx-cursor: hand;" />
+                        <Button onAction="#clicCancelar" text="Cancelar" textFill="#2a2a2a"
+                                style="-fx-background-color: #e0e6e8; -fx-background-radius: 18; -fx-padding: 8 26 8 26; -fx-cursor: hand;" />
+                        <Button onAction="#clicAsignar" text="Asignar" textFill="#ffffff"
+                                style="-fx-background-color: #14506b; -fx-background-radius: 18; -fx-padding: 8 26 8 26; -fx-cursor: hand;" />
+                    </children>
+                </HBox>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

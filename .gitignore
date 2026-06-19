@@ -1,0 +1,20 @@
+# ============================================================
+# Salida de compilacion / ejecutables (NO se versionan)
+# ============================================================
+/build/
+/dist/
+
+# Clases compiladas
+*.class
+
+# ============================================================
+# Configuracion local de NetBeans (especifica de cada equipo)
+# ============================================================
+nbproject/private/
+
+# ============================================================
+# Archivos del sistema operativo / editores
+# ============================================================
+.DS_Store
+Thumbs.db
+*~

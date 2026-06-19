@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="840.0"
+            style="-fx-background-color: linear-gradient(to bottom right, #15546b, #2e8b41);"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sgpp.controlador.ValidarReporteController">
+    <children>
+        <Label layoutX="28.0" layoutY="22.0" text="Validar Reportes" textFill="#ffffff">
+            <font>
+                <Font name="Arial Bold Italic" size="24.0" />
+            </font>
+        </Label>
+
+        <Pane layoutX="24.0" layoutY="70.0" prefHeight="506.0" prefWidth="792.0"
+              style="-fx-background-color: #ffffff; -fx-background-radius: 26;">
+            <children>
+                <Label layoutX="34.0" layoutY="24.0"
+                       text="Reportes mensuales pendientes de validar" textFill="#14506b">
+                    <font>
+                        <Font name="Arial Bold" size="14.0" />
+                    </font>
+                </Label>
+
+                <TableView fx:id="tablaReportes" layoutX="34.0" layoutY="56.0"
+                           prefHeight="360.0" prefWidth="724.0">
+                    <columns>
+                        <TableColumn fx:id="columnaEstudiante" prefWidth="200.0"
+                                     text="Estudiante" />
+                        <TableColumn fx:id="columnaNumeroReporte" prefWidth="90.0"
+                                     text="No. reporte" />
+                        <TableColumn fx:id="columnaMes" prefWidth="120.0" text="Mes" />
+                        <TableColumn fx:id="columnaFecha" prefWidth="120.0" text="Fecha" />
+                        <TableColumn fx:id="columnaHoras" prefWidth="90.0" text="Horas" />
+                        <TableColumn fx:id="columnaEstado" prefWidth="100.0" text="Estado" />
+                    </columns>
+                </TableView>
+
+                <HBox alignment="CENTER_RIGHT" layoutX="34.0" layoutY="436.0" prefWidth="724.0"
+                      spacing="18.0">
+                    <children>
+                        <Button onAction="#clicSalir" text="Salir" textFill="#b03a2e"
+                                style="-fx-background-color: #ffffff; -fx-border-color: #b03a2e; -fx-border-width: 1; -fx-border-radius: 18; -fx-background-radius: 18; -fx-padding: 8 26 8 26; -fx-cursor: hand;" />
+                        <Button onAction="#clicRegresar" text="Regresar" textFill="#2a2a2a"
+                                style="-fx-background-color: #e0e6e8; -fx-background-radius: 18; -fx-padding: 8 26 8 26; -fx-cursor: hand;" />
+                        <Button onAction="#clicSeleccionar" text="Seleccionar" textFill="#ffffff"
+                                style="-fx-background-color: #14506b; -fx-background-radius: 18; -fx-padding: 8 26 8 26; -fx-cursor: hand;" />
+                    </children>
+                </HBox>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

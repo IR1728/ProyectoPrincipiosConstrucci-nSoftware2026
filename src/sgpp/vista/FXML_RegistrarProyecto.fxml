@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="640.0" prefWidth="840.0"
+            style="-fx-background-color: linear-gradient(to bottom right, #15546b, #2e8b41);"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sgpp.controlador.RegistrarProyectoController">
+    <children>
+        <Label layoutX="28.0" layoutY="22.0" text="Registrar Proyecto" textFill="#ffffff">
+            <font>
+                <Font name="Arial Bold Italic" size="24.0" />
+            </font>
+        </Label>
+
+        <Pane layoutX="24.0" layoutY="70.0" prefHeight="546.0" prefWidth="792.0"
+              style="-fx-background-color: #ffffff; -fx-background-radius: 26;">
+            <children>
+                <GridPane hgap="14.0" layoutX="44.0" layoutY="34.0" prefWidth="704.0" vgap="12.0">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" minWidth="200.0" prefWidth="220.0" />
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="300.0" prefWidth="460.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="34.0" />
+                        <RowConstraints minHeight="70.0" />
+                        <RowConstraints minHeight="34.0" />
+                        <RowConstraints minHeight="34.0" />
+                        <RowConstraints minHeight="34.0" />
+                        <RowConstraints minHeight="34.0" />
+                        <RowConstraints minHeight="34.0" />
+                        <RowConstraints minHeight="34.0" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="Nombre del proyecto" textFill="#14506b"
+                               GridPane.rowIndex="0" />
+                        <TextField fx:id="campoNombre" GridPane.columnIndex="1"
+                                   GridPane.rowIndex="0" />
+
+                        <Label text="Objetivo general" textFill="#14506b"
+                               GridPane.rowIndex="1" />
+                        <TextArea fx:id="campoObjetivoGeneral" prefHeight="64.0" wrapText="true"
+                                  GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                        <Label text="Metodologia" textFill="#14506b" GridPane.rowIndex="2" />
+                        <TextField fx:id="campoMetodologia" GridPane.columnIndex="1"
+                                   GridPane.rowIndex="2" />
+
+                        <Label text="Numero maximo de participantes" textFill="#14506b"
+                               GridPane.rowIndex="3" />
+                        <TextField fx:id="campoMaximoParticipantes" GridPane.columnIndex="1"
+                                   GridPane.rowIndex="3" />
+
+                        <Label text="Fecha de inicio" textFill="#14506b" GridPane.rowIndex="4" />
+                        <DatePicker fx:id="selectorFechaInicio" prefWidth="220.0"
+                                    GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                        <Label text="Fecha de finalizacion" textFill="#14506b"
+                               GridPane.rowIndex="5" />
+                        <DatePicker fx:id="selectorFechaFinalizacion" prefWidth="220.0"
+                                    GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+                        <Label text="Organizacion Vinculada" textFill="#14506b"
+                               GridPane.rowIndex="6" />
+                        <ComboBox fx:id="comboOrganizacionVinculada" prefWidth="300.0"
+                                  onAction="#clicSeleccionarOrganizacion"
+                                  GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+                        <Label text="Responsable Tecnico" textFill="#14506b"
+                               GridPane.rowIndex="7" />
+                        <ComboBox fx:id="comboResponsableTecnico" prefWidth="300.0"
+                                  GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                    </children>
+                </GridPane>
+
+                <HBox alignment="CENTER_RIGHT" layoutX="44.0" layoutY="486.0" prefWidth="704.0"
+                      spacing="18.0">
+                    <children>
+                        <Button onAction="#clicSalir" text="Salir" textFill="#b03a2e"
+                                style="-fx-background-color: #ffffff; -fx-border-color: #b03a2e; -fx-border-width: 1; -fx-border-radius: 18; -fx-background-radius: 18; -fx-padding: 8 26 8 26; -fx-cursor: hand;" />
+                        <Button onAction="#clicCancelar" text="Cancelar" textFill="#2a2a2a"
+                                style="-fx-background-color: #e0e6e8; -fx-background-radius: 18; -fx-padding: 8 26 8 26; -fx-cursor: hand;" />
+                        <Button onAction="#clicRegistrar" text="Registrar" textFill="#ffffff"
+                                style="-fx-background-color: #14506b; -fx-background-radius: 18; -fx-padding: 8 26 8 26; -fx-cursor: hand;" />
+                    </children>
+                    <padding>
+                        <Insets />
+                    </padding>
+                </HBox>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

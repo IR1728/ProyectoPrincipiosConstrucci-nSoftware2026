@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="520.0" prefWidth="560.0" style="-fx-background-color: #ffffff;"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sgpp.controlador.ConfirmarValidacionController">
+    <children>
+        <Label layoutX="24.0" layoutY="20.0" text="Validacion de Reporte Mensual"
+               textFill="#14506b">
+            <font>
+                <Font name="Arial Bold" size="18.0" />
+            </font>
+        </Label>
+
+        <VBox layoutX="24.0" layoutY="58.0" prefWidth="512.0" spacing="3.0">
+            <children>
+                <Label fx:id="etiquetaEstudiante" textFill="#2a2a2a" />
+                <Label fx:id="etiquetaDatos" textFill="#5a5a5a" />
+            </children>
+        </VBox>
+
+        <Label layoutX="24.0" layoutY="116.0" text="Contenido del reporte" textFill="#14506b" />
+        <TextArea fx:id="campoContenido" editable="false" layoutX="24.0" layoutY="136.0"
+                  prefHeight="160.0" prefWidth="512.0" wrapText="true" />
+
+        <Label layoutX="24.0" layoutY="312.0" text="Observaciones" textFill="#14506b" />
+        <TextArea fx:id="campoObservaciones" layoutX="24.0" layoutY="332.0" prefHeight="100.0"
+                  prefWidth="512.0" wrapText="true" />
+
+        <HBox alignment="CENTER_RIGHT" layoutX="24.0" layoutY="452.0" prefWidth="512.0"
+              spacing="14.0">
+            <children>
+                <Button onAction="#clicRegresar" text="Regresar" textFill="#2a2a2a"
+                        style="-fx-background-color: #e0e6e8; -fx-background-radius: 18; -fx-padding: 8 22 8 22; -fx-cursor: hand;" />
+                <Button onAction="#clicRechazar" text="Rechazar" textFill="#ffffff"
+                        style="-fx-background-color: #b03a2e; -fx-background-radius: 18; -fx-padding: 8 22 8 22; -fx-cursor: hand;" />
+                <Button onAction="#clicValidar" text="Validar" textFill="#ffffff"
+                        style="-fx-background-color: #14506b; -fx-background-radius: 18; -fx-padding: 8 22 8 22; -fx-cursor: hand;" />
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

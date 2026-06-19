@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+*** GENERADO POR NETBEANS (estilo j2seproject) ***
+NO EDITAR. Para personalizar la construccion, edite build.xml usando los
+puntos de extension -pre-init, -post-compile, -post-jar, etc.
+Este archivo construye un proyecto Java estandar de Ant haciendo "fork" al
+JDK definido en platforms.${platform.active}.home (JDK 1.8, que incluye
+JavaFX 8 en jre/lib/ext/jfxrt.jar, por lo que no requiere classpath extra).
+-->
+<project name="SistemaGestionPracticasProfesionales-impl" basedir="..">
+
+    <target name="default" depends="jar" description="Construye el proyecto."/>
+
+    <!-- ===================== Inicializacion ===================== -->
+    <target name="-pre-init"/>
+
+    <target name="-init-private" depends="-pre-init">
+        <property file="nbproject/private/private.properties"/>
+    </target>
+
+    <target name="-init-user" depends="-init-private">
+        <property file="${user.properties.file}"/>
+    </target>
+
+    <target name="-init-project" depends="-init-user">
+        <property file="nbproject/project.properties"/>
+    </target>
+
+    <target name="-do-init" depends="-init-project">
+        <property name="platform.javac" value="${platform.home}/bin/javac"/>
+        <property name="platform.java" value="${platform.home}/bin/java"/>
+        <condition property="have.platform">
+            <available file="${platform.home}/bin/javac"/>
+        </condition>
+        <fail unless="have.platform">
+No se encontro el JDK en: ${platform.home}
+Ajuste platforms.${platform.active}.home en nbproject/project.properties o
+registre la plataforma "JDK_1.8" en NetBeans (Herramientas &gt; Plataformas de Java).
+        </fail>
+    </target>
+
+    <target name="-post-init"/>
+
+    <target name="init" depends="-pre-init,-init-private,-init-user,-init-project,-do-init,-post-init"/>
+
+    <!-- ===================== Compilacion ===================== -->
+    <target name="-pre-compile"/>
+
+    <target name="-do-compile" depends="init">
+        <mkdir dir="${build.classes.dir}"/>
+        <javac srcdir="${src.dir}"
+               destdir="${build.classes.dir}"
+               source="${javac.source}"
+               target="${javac.target}"
+               encoding="${source.encoding}"
+               includeantruntime="false"
+               fork="true"
+               executable="${platform.javac}"
+               debug="true">
+            <classpath path="${javac.classpath}"/>
+        </javac>
+        <!-- Copia recursos no-java (FXML, CSS, imagenes) a las clases -->
+        <copy todir="${build.classes.dir}">
+            <fileset dir="${src.dir}">
+                <exclude name="**/*.java"/>
+                <exclude name="**/*.form"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="-post-compile"/>
+
+    <target name="compile" depends="-pre-compile,-do-compile,-post-compile"
+            description="Compila el proyecto."/>
+
+    <!-- ===================== Empaquetado (JAR) ===================== -->
+    <target name="-pre-jar"/>
+
+    <target name="-do-jar" depends="compile">
+        <mkdir dir="${dist.dir}/lib"/>
+        <!-- Copia las librerias (conector JDBC) junto al JAR distribuible -->
+        <copy todir="${dist.dir}/lib" flatten="true">
+            <path path="${javac.classpath}"/>
+        </copy>
+        <!-- Construye el Class-Path del manifiesto apuntando a dist/lib -->
+        <pathconvert property="manifest.classpath" pathsep=" ">
+            <path path="${javac.classpath}"/>
+            <mapper>
+                <chainedmapper>
+                    <flattenmapper/>
+                    <globmapper from="*" to="lib/*"/>
+                </chainedmapper>
+            </mapper>
+        </pathconvert>
+        <jar destfile="${dist.jar}" basedir="${build.classes.dir}" compress="${jar.compress}">
+            <manifest>
+                <attribute name="Main-Class" value="${main.class}"/>
+                <attribute name="Class-Path" value="${manifest.classpath}"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="-post-jar"/>
+
+    <target name="jar" depends="-pre-jar,-do-jar,-post-jar"
+            description="Construye el JAR del proyecto."/>
+
+    <!-- ===================== Ejecucion ===================== -->
+    <target name="run" depends="jar" description="Ejecuta el proyecto.">
+        <java fork="true" jvm="${platform.java}" classname="${main.class}">
+            <classpath>
+                <pathelement path="${run.classpath}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <!-- ===================== Limpieza ===================== -->
+    <target name="clean" depends="init" description="Limpia los productos de construccion.">
+        <delete dir="${build.dir}"/>
+        <delete dir="${dist.dir}"/>
+    </target>
+
+</project>

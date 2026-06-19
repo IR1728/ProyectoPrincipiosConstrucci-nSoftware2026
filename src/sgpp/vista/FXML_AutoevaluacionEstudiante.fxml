@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="640.0" prefWidth="840.0"
+            style="-fx-background-color: linear-gradient(to bottom right, #15546b, #2e8b41);"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sgpp.controlador.AutoevaluacionEstudianteController">
+    <children>
+        <Label layoutX="28.0" layoutY="22.0" text="Llenar Autoevaluacion" textFill="#ffffff">
+            <font>
+                <Font name="Arial Bold Italic" size="24.0" />
+            </font>
+        </Label>
+
+        <Pane layoutX="24.0" layoutY="70.0" prefHeight="546.0" prefWidth="792.0"
+              style="-fx-background-color: #ffffff; -fx-background-radius: 26;">
+            <children>
+                <VBox layoutX="40.0" layoutY="24.0" prefWidth="712.0" spacing="4.0">
+                    <children>
+                        <Label fx:id="etiquetaEstudiante" textFill="#14506b">
+                            <font>
+                                <Font name="Arial Bold" size="15.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="etiquetaProyecto" textFill="#5a5a5a" />
+                        <Label fx:id="etiquetaOrganizacion" textFill="#5a5a5a" />
+                    </children>
+                </VBox>
+
+                <Label layoutX="40.0" layoutY="98.0"
+                       text="Selecciona del 1 (Deficiente) al 4 (Excelente) cada criterio:"
+                       textFill="#3a3a3a">
+                    <font>
+                        <Font name="Arial Italic" size="13.0" />
+                    </font>
+                </Label>
+
+                <ScrollPane layoutX="40.0" layoutY="124.0" prefHeight="280.0" prefWidth="712.0"
+                            fitToWidth="true"
+                            style="-fx-background-color: transparent; -fx-border-color: #cfd7da; -fx-border-radius: 10;">
+                    <content>
+                        <VBox fx:id="contenedorRubrica" spacing="10.0"
+                              style="-fx-padding: 12;" />
+                    </content>
+                </ScrollPane>
+
+                <Label layoutX="40.0" layoutY="414.0" text="Comentario" textFill="#14506b" />
+                <TextArea fx:id="campoComentario" layoutX="40.0" layoutY="434.0"
+                          prefHeight="50.0" prefWidth="712.0" wrapText="true" />
+
+                <HBox alignment="CENTER_RIGHT" layoutX="40.0" layoutY="496.0" prefWidth="712.0"
+                      spacing="18.0">
+                    <children>
+                        <Button onAction="#clicSalir" text="Salir" textFill="#b03a2e"
+                                style="-fx-background-color: #ffffff; -fx-border-color: #b03a2e; -fx-border-width: 1; -fx-border-radius: 18; -fx-background-radius: 18; -fx-padding: 8 26 8 26; -fx-cursor: hand;" />
+                        <Button onAction="#clicCancelar" text="Cancelar" textFill="#2a2a2a"
+                                style="-fx-background-color: #e0e6e8; -fx-background-radius: 18; -fx-padding: 8 26 8 26; -fx-cursor: hand;" />
+                        <Button onAction="#clicSubir" text="Subir" textFill="#ffffff"
+                                style="-fx-background-color: #14506b; -fx-background-radius: 18; -fx-padding: 8 26 8 26; -fx-cursor: hand;" />
+                    </children>
+                </HBox>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

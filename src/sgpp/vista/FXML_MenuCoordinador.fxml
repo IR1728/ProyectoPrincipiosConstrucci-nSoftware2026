@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="560.0" prefWidth="840.0"
+            style="-fx-background-color: linear-gradient(to bottom right, #15546b, #2e8b41);"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sgpp.controlador.MenuCoordinadorController">
+    <children>
+        <Label layoutX="28.0" layoutY="24.0" text="Sistema de Gestion de Practicas Profesionales"
+               textFill="#ffffff">
+            <font>
+                <Font name="Arial Bold Italic" size="22.0" />
+            </font>
+        </Label>
+        <Label layoutX="28.0" layoutY="58.0" text="Coordinador" textFill="#dceadf">
+            <font>
+                <Font name="Arial Italic" size="16.0" />
+            </font>
+        </Label>
+        <Label layoutX="690.0" layoutY="26.0" onMouseClicked="#clicCerrarSesion"
+               text="Cerrar sesion" textFill="#ffffff"
+               style="-fx-cursor: hand; -fx-underline: true;">
+            <font>
+                <Font name="Arial" size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="795.0" layoutY="26.0" onMouseClicked="#clicSalir"
+               text="Salir" textFill="#ffffff"
+               style="-fx-cursor: hand; -fx-underline: true;">
+            <font>
+                <Font name="Arial" size="14.0" />
+            </font>
+        </Label>
+
+        <Pane layoutX="24.0" layoutY="96.0" prefHeight="440.0" prefWidth="792.0"
+              style="-fx-background-color: #ffffff; -fx-background-radius: 26;">
+            <children>
+                <HBox alignment="CENTER" layoutX="46.0" layoutY="80.0" prefWidth="700.0"
+                      spacing="40.0">
+                    <children>
+                        <StackPane onMouseClicked="#clicRegistrarProyecto" prefHeight="230.0"
+                                   prefWidth="200.0"
+                                   style="-fx-background-color: linear-gradient(to bottom right, #16607a, #2f9046); -fx-background-radius: 18; -fx-cursor: hand;">
+                            <children>
+                                <Label text="Registrar Proyecto" textAlignment="CENTER"
+                                       textFill="#ffffff" wrapText="true">
+                                    <font>
+                                        <Font name="Arial Bold" size="16.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#clicAsignarProyecto" prefHeight="230.0"
+                                   prefWidth="200.0"
+                                   style="-fx-background-color: linear-gradient(to bottom right, #16607a, #2f9046); -fx-background-radius: 18; -fx-cursor: hand;">
+                            <children>
+                                <Label text="Asignar Proyectos" textAlignment="CENTER"
+                                       textFill="#ffffff" wrapText="true">
+                                    <font>
+                                        <Font name="Arial Bold" size="16.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#clicProgramarEntregas" prefHeight="230.0"
+                                   prefWidth="200.0"
+                                   style="-fx-background-color: linear-gradient(to bottom right, #16607a, #2f9046); -fx-background-radius: 18; -fx-cursor: hand;">
+                            <children>
+                                <Label text="Programar Entregas de Practicas"
+                                       textAlignment="CENTER" textFill="#ffffff" wrapText="true">
+                                    <font>
+                                        <Font name="Arial Bold" size="16.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </StackPane>
+                    </children>
+                </HBox>
+                <Label layoutX="296.0" layoutY="400.0" text="Universidad Veracruzana"
+                       textFill="#14506b" opacity="0.4">
+                    <font>
+                        <Font name="Arial" size="14.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

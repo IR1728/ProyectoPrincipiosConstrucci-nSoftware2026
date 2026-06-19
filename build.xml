@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Proyecto Ant de NetBeans. Editar nbproject/project.properties para
+     personalizar. La logica de construccion esta en nbproject/build-impl.xml -->
+<project name="SistemaGestionPracticasProfesionales" default="default" basedir=".">
+    <description>Construye, prueba y ejecuta el proyecto SistemaGestionPracticasProfesionales.</description>
+    <import file="nbproject/build-impl.xml"/>
+</project>
