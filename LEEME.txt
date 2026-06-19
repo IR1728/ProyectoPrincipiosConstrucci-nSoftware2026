@@ -44,7 +44,8 @@ El sistema usa la base de datos MySQL "practicas_sgpp" con el usuario
    2) Crear las tablas y cargar datos de ejemplo:
         mysql -u practicas_app -p practicas_sgpp < esquema-bd.sql
 
-Parametros de conexion (editables, NO hardcodeados): src/configuracion-bd.properties
+Parametros de conexion: definidos como constantes en la clase
+   src/sgpp/modelo/ConexionBD.java
    base de datos : practicas_sgpp     usuario : practicas_app
 
 USUARIOS DE PRUEBA (registrados en la tabla usuario)
@@ -67,8 +68,7 @@ ESTRUCTURA (MVC)
    src/sgpp/controlador/   -> controladores (sufijo Controller en ingles)
    src/sgpp/modelo/pojo/    -> POJOs (entidades del dominio)
    src/sgpp/modelo/dao/     -> DAO (acceso a datos: UsuarioDAO, ProyectoDAO, etc.)
-   src/sgpp/modelo/ConexionBD.java     -> conexion a MySQL (formato estandar)
-   src/configuracion-bd.properties     -> parametros de conexion (no hardcodeados)
+   src/sgpp/modelo/ConexionBD.java     -> conexion a MySQL (credenciales en constantes)
    src/sgpp/vista/          -> vistas FXML (sin hojas CSS; estilos en linea)
    src/sgpp/utilidad/       -> utilidades de navegacion y alertas
    crear-usuario-bd.sql / esquema-bd.sql -> scripts de base de datos
